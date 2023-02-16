@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 15px;
+}
+
+:root{
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue:  hsl(212, 86%, 64%);
+
+    --dark-blur: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --light-gray: hsl(0, 0%, 98%);
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: var(--light-gray);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+img{
+    max-width: 100%;
+}
+
+header{
+    max-width: 35rem;
+}
+
+h1{
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--grayish-blue);
+}
+
+.subtitle{
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--dark-blur);
+}
+
+.head-paragraph{
+    color: var(--grayish-blue);
+    margin-bottom: 5rem;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    background-color: #fff;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 1.5rem;
+    border-top: .5rem solid var(--card-border);
+    border-radius: .5rem;
+    max-width: 21rem;
+    box-shadow:
+        10px 10px 15px 0px rgba(0, 0, 0, .1);
+}
+
+.card-title{
+    color: var(--dark-blur);
+}
+
+.card-paragraph{
+    color: var(--grayish-blue);
+    margin-top: .5rem;
+}
+
+.card-img{
+    width: 3rem;
+    margin-left: auto;
+    margin-top: 1.5rem;
+}
+
+.supervisor{
+    --card-border: var(--cyan);
+    grid-area: supervisor;
+}
+
+.team-builder{
+    --card-border: var(--red);
+    grid-area: team;
+}
+
+.karma{
+    --card-border: var(--orange);
+    grid-area: karma;
+}
+
+.calculator{
+    --card-border: var(--blue);
+    grid-area: calculator
+}
+
+@media(min-width:50rem){
+    body{
+        margin: 0;
+        justify-content: center;
+    }
+
+    .cards{
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        '. team .'
+        'supervisor team calculator'
+        'supervisor karma calculator'
+        '. karma .'
+    }
+
+    .card{
+        margin-bottom: 0;
+    }
+}
